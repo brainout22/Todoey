@@ -22,16 +22,7 @@ class TodoListViewController: UITableViewController {
 
         print(dataFilePath)
         
-//        let newItem = Item()
-//        newItem.title = "Find Hugh"
-//        itemArray.append(newItem)
-        
         loadItems()
-
-//        if let items = defaults.array(forKey: "TodoListArray") as? [Item] {
-//            itemArray = items
-//        }
-        
         
     }
     
@@ -43,22 +34,10 @@ class TodoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let cell = UITableViewCell(style: .default, reuseIdentifier: "ToDoItemCell")
-//        print("CellForRowAtIndexpath called")
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        
         let item = itemArray[indexPath.row]
         
-        
         cell.textLabel?.text = item.title
-        
-        // Ternary operator
-        //        if item.done == true {
-        //            cell.accessoryType = .checkmark
-        //        } else {
-        //            cell.accessoryType = .none
-        //        }
         
         cell.accessoryType = item.done ? .checkmark : .none
 
@@ -70,9 +49,6 @@ class TodoListViewController: UITableViewController {
     //MARK: - Tableview Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-//        print(itemArray[indexPath.row])
-        
-        
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
         saveItems()
@@ -95,9 +71,6 @@ class TodoListViewController: UITableViewController {
             newItem.title = textField.text!
             
             self.itemArray.append(newItem)
-            
-//            self.defaults.set(self.itemArray, forKey: "TodoListArray")
-
             self.saveItems()
         }
         
