@@ -71,6 +71,7 @@ class TodoListViewController: UITableViewController {
             newItem.title = textField.text!
             
             self.itemArray.append(newItem)
+            
             self.saveItems()
         }
         
